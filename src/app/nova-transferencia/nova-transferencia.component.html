@@ -1,15 +1,19 @@
-<form>
-	<h2>Nova Transferência</h2>
+<section class="container">
+	<form class="form" (ngSubmit)="transfer()">
+		<h2 class="form-title">Nova Transferência</h2>
 
-	<div>
-		<label for="valor">Valor</label>
-		<input id="valor" type="text">
-	</div>
+		<div class="form-field">
+			<label class="form-field-label" for="valor">Valor</label>
+			<input class="form-field-input" id="valor" type="text" name="valor" [(ngModel)]="valor">
+		</div>
 
-	<div>
-		<label for="destino">Destino</label>
-		<input id="destino" type="text">
-	</div>
+		<div class="form-field">
+			<label class="form-field-label" for="destino">Destino</label>
+			<input class="form-field-input" id="destino" type="text" name="destino" [(ngModel)]="destino">
+		</div>
 
-	<button>Transferir</button>
-</form>
+		<div class="button-wrapper">
+			<button class="button" type="submit">Transferir</button>
+		</div>
+	</form>
+</section>
