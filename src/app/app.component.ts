@@ -7,11 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-	transference: any = { };
+	listTransference: any[] = [];
 
 	onTransferHandler(event: any) {
 		console.log(event);
-		this.transference = event;
+		const transference = {... event, data: new Date()}
+		this.listTransference.push(transference);
 	}
 
 }
