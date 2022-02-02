@@ -10,27 +10,27 @@
 	background-color: white;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
-	&-header {
+	&__header {
 		color: var(--primary);
 
-		&-content {
+		&__content {
 			padding: 10px;
 			border-bottom: 2px solid green;
 		}
 	}
 
-	&-row {
+	&__row {
 		margin-bottom: 10px;
 		border-radius: 4px;
 
 		&:last-child {
-			.table-content {
+			.table__content {
 				border-bottom: none;
 			}
 		}
 	}
 
-	&-content {
+	&__content {
 		padding: 10px;
 		border-bottom: 1px solid var(--cinza-claro);
 	}

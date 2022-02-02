@@ -1,14 +1,14 @@
 <table class="table">
-	<thead class="table-header">
-		<th class="table-header-content">Valor</th>
-		<th class="table-header-content">Destino</th>
-		<th class="table-header-content">Data</th>
+	<thead class="table__header">
+		<th class="table__header__content">Valor</th>
+		<th class="table__header__content">Destino</th>
+		<th class="table__header__content">Data</th>
 	</thead>
 	<tbody>
-		<tr class="table-row" *ngFor="let transference of listTransference">
-			<td class="table-content">{{ transference?.valor | currency }}</td>
-			<td class="table-content">{{ transference?.destino }}</td>
-			<td class="table-content">{{ transference?.data | date:'short' }}</td>
+		<tr class="table__row" *ngFor="let transference of listTransference">
+			<td class="table__content">{{ transference?.valor | currency }}</td>
+			<td class="table__content">{{ transference?.destino }}</td>
+			<td class="table__content">{{ transference?.data | date:'short' }}</td>
 		</tr>
 	</tbody>
 </table>
