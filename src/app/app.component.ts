@@ -1,3 +1,4 @@
+import { TransferenceService } from './services/transference.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,12 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-	listTransference: any[] = [];
+	constructor(private transferenceService: TransferenceService) { }
 
 	onTransferHandler(event: any) {
-		console.log(event);
-		const transference = {... event, data: new Date()}
-		this.listTransference.push(transference);
+		this.transferenceService.add(event);
 	}
 
 }
