@@ -1,13 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Transference } from './../models/transference.model';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class TransferenceService {
 
+	private readonly URL = "http://localhost:3000/transferences";
+
 	private _listTransference: any[];
 
-	constructor() {
+	constructor(private httpClient: HttpClient) {
 		this._listTransference = [];
 	}
 
@@ -15,9 +19,13 @@ export class TransferenceService {
 		return this._listTransference;
 	}
 
-	add(trasnference: any) {
-		this.setData(trasnference);
-		this._listTransference.push(trasnference);
+	all() {
+		return this.httpClient.get<Transference[]>(this.URL);
+	}
+
+	add(transference: any) {
+		this.setData(transference);
+		return this.httpClient.post<Transference>(this.URL, transference);
 	}
 
 	private setData(transference: any) {

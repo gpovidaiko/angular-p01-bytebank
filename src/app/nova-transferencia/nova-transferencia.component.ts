@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TransferenceService } from './../services/transference.service';
 
 @Component({
 	selector: 'app-nova-transferencia',
@@ -7,12 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NovaTransferenciaComponent implements OnInit {
 
-	@Output() onTransfer = new EventEmitter<any>();
-
 	valor: number;
 	destino: number;
 
-	constructor() { }
+	constructor(private transferenceService: TransferenceService) { }
 
 	ngOnInit(): void {
 	}
@@ -23,8 +22,11 @@ export class NovaTransferenciaComponent implements OnInit {
 			valor: this.valor,
 			destino: this.destino
 		};
-		this.onTransfer.emit(transference);
-		this.clearFields();
+		this.transferenceService.add(transference)
+			.subscribe({
+				next: value => this.clearFields(),
+				error: error => console.error(error)
+			});
 	}
 
 	clearFields() {
